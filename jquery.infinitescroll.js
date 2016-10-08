@@ -490,13 +490,11 @@
                 return;
             }
 
-            opts.loading.msg
-            .find('img')
-            .hide()
-            .parent()
-            .find('div').html(opts.loading.finishedMsg).animate({ opacity: 1 }, 2000, function () {
-                $(this).parent().fadeOut(opts.loading.speed);
-            });
+            opts.loading.msg.hide();
+
+            $(opts.loading.selector)
+            .find('p')
+            .html(opts.loading.finishedMsg);
 
             // user provided callback when done
             opts.errorCallback.call($(opts.contentSelector)[0],'done');
